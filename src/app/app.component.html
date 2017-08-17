@@ -17,3 +17,7 @@
         <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
     </li>
 </ul>
+<h2> {{ (user | async)?.displayName }} </h2>
+<img src="{{ (user | async)?.photoURL }}" class="img-circle" alt="">
+<button class="btn btn-success" (click)="login()">Login</button>
+<button class="btn btn-danger" (click)="logout()">Logout</button>
