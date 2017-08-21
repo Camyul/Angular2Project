@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
-import { Observable } from 'rxjs/Observable';
+/* import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase/app'; */
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(db: AngularFireDatabase) {
     this.items = db.list('/items');
   } */
-  title = 'The Tranquil Gazelles Team app';
+  /* title = 'The Tranquil Gazelles Team app';
   user: Observable<firebase.User>;
     constructor(public afAuth: AngularFireAuth) {
       this.user = afAuth.authState;
@@ -27,5 +27,5 @@ export class AppComponent {
     }
     logout() {
       this.afAuth.auth.signOut();
-    }
+    } */
 }
