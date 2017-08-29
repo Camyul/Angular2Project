@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<h3 *ngFor="let recipe of recipes">
+    <app-recipe [recipe]="recipe"></app-recipe>
+
+</h3>
+<div class="recipes-container">
+    <input type="text" #t>
+    <input type="text" #p>
+    <input type="text" #d>
+
+    <button (click)="addRecipie(t.value, p.value, d.value)" class="btn btn-success">Add Recipe</button>
+</div>
+<app-footer></app-footer>

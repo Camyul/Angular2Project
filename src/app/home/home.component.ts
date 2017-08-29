@@ -9,8 +9,9 @@ import { AuthService } from '../providers/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  title: string;
-  user;
+  private title: string;
+  private user;
+
   constructor(private authService: AuthService) {
     this.user = this.authService.user;
 
@@ -19,7 +20,4 @@ export class HomeComponent implements OnInit {
     this.title = 'The Tranquil Gazelles Team Project';
   }
 
-  logout() {
-    return this.authService.logout();
-  }
 }

@@ -1,3 +1,5 @@
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,24 +15,27 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
-import { AuthService } from './providers/auth.service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NotfoundComponent
 ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
+    CoreModule,
     AlertModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 
