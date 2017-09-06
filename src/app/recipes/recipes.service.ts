@@ -1,18 +1,22 @@
+import { Recipe } from './../Models/recipe.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RecipesService {
 
   private recipes = [
-    {id: 1, title: 'Chips', products: 'potato', description: 'Some with potato'},
-    {id: 2, title: 'Duner', products: 'chikens meat', description: 'An Arabic breadcrumb'},
-    {id: 3, title: 'Tomato juce', products: 'tomato', description: 'Squeezing tomato'},
+    {id: 1, title: 'Chips', products: 'potato',
+    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'Some with potato', year: '2017'},
+    {id: 2, title: 'Duner', products: 'chikens meat',
+    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'An Arabic breadcrumb', year: '2017'},
+    {id: 3, title: 'Tomato juce', products: 'tomato',
+    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'Squeezing tomato', year: '2017'},
   ];
 
   constructor() { }
 
-  addRecipie(recipie: {id: number, title: string, products: string, description: string}) {
-    this.recipes.push(recipie);
+  addRecipie(recipe: Recipe) {
+    this.recipes.push(recipe);
   }
 
   getById(id) {

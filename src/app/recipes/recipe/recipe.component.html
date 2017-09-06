@@ -1,9 +1,11 @@
 <!-- <a [routerLink]="[ '/recipes', recipe?.id ]">Id: {{recipe.id}} Title: {{recipe.title}}</a> {{recipe.title}} -->
-<div class="product" (click)="redirectToDetails(recipe?.id)">
+<div class="recipe" (click)="redirectToDetails(recipe?.id)">
     <ul>
         <li>Name:
             <ul>
                 <li>{{recipe.title}}</li>
+                <img class="recipe-img" src="{{recipe.img}}" alt="reccipe-img">
+                <li>{{recipe.year}}</li>
             </ul>
         </li>
         <li>Products: {{recipe.products}}</li>

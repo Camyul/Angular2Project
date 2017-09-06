@@ -8,3 +8,7 @@
     background-color: #8CADE8;
     cursor: pointer;
 }
+
+.recipe-img {
+    width: 300px;
+}

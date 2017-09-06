@@ -17,10 +17,10 @@ export class RecipesListComponent implements OnInit {
     this.recipes = this.activatedRoute.snapshot.data['recipes'];
   }
 
-  addRecipie(title, products, description) {
+  addRecipie(title, products, img, description, year) {
     const id = +this.recipes.length + 1;
 
-    this.recipesService.addRecipie({id: id, title: title, products: products, description: description});
+    this.recipesService.addRecipie({id: id, title: title, products: products, img: img, description: description, year: year});
   }
 
 }
