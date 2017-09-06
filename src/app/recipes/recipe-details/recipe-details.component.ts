@@ -16,7 +16,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRout.snapshot.params['id']; // TODO: check for null
-    console.log(id);
+    // console.log(id);
     this.recipe = this.recipesService.getById(id);
   }
 

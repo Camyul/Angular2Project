@@ -1,5 +1,4 @@
 export class Recipe {
-    // id: number;
     title: string;
     description: string;
     img: string;
@@ -7,7 +6,6 @@ export class Recipe {
     year: string;
 
     constructor(title: string, products: string, img: string, description: string, year: string) {
-        // this.id = id;
         this.title = title;
         this.products = products;
         this.img = img;

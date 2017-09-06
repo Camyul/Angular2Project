@@ -7,7 +7,6 @@ export class RecipeGuardService implements CanActivate {
     const id = route.params['id'];
 
         const recipeFound = !!this.recipesService.getById(id);
-
         let check = true;
 
         if (recipeFound) {
