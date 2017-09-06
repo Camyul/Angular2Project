@@ -1,26 +1,29 @@
 import { Recipe } from './../Models/recipe.model';
 import { Injectable } from '@angular/core';
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Injectable()
 export class RecipesService {
 
-  private recipes = [
-    {id: 1, title: 'Chips', products: 'potato',
-    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'Some with potato', year: '2017'},
-    {id: 2, title: 'Duner', products: 'chikens meat',
-    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'An Arabic breadcrumb', year: '2017'},
-    {id: 3, title: 'Tomato juce', products: 'tomato',
-    img: 'http://images.media-allrecipes.com/userphotos/250x250/3485679.jpg', description: 'Squeezing tomato', year: '2017'},
-  ];
+  private recipes: FirebaseListObservable<any>;
+  private recipe: FirebaseObjectObservable<any>;
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+    this.recipes = db.list('/recipes');
+    this.recipe = db.object('/recipes/recipe');
+   }
 
-  addRecipie(recipe: Recipe) {
+  addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
   }
 
-  getById(id) {
-    return this.recipes.find(x => x.id === id);
+  getById(key) {
+       console.log(this.recipe.filter(x => x.$key === key));
+       return new Promise(res => {
+        setTimeout(() => {
+          res(this.recipe);
+        }, 0);
+      });
   }
 
   getAll() {

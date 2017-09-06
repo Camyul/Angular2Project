@@ -4,7 +4,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 @Injectable()
 export class RecipeGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const id = +route.params['id'];
+    const id = route.params['id'];
 
         const recipeFound = !!this.recipesService.getById(id);
 

@@ -11,16 +11,14 @@ export class RecipesListComponent implements OnInit {
 
   recipes;
 
-  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute) { }
+  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute) {  }
 
   ngOnInit() {
     this.recipes = this.activatedRoute.snapshot.data['recipes'];
   }
 
-  addRecipie(title, products, img, description, year) {
-    const id = +this.recipes.length + 1;
-
-    this.recipesService.addRecipie({id: id, title: title, products: products, img: img, description: description, year: year});
+  addRecipe(title, products, img, description, year) {
+    this.recipesService.addRecipe({title: title, products: products, img: img, description: description, year: year});
   }
 
 }

@@ -1,3 +1,4 @@
+import { Recipe } from './../../Models/recipe.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,12 +10,7 @@ import { Router } from '@angular/router';
 export class RecipeComponent implements OnInit {
 
   @Input()
-  recipe: {
-    id: number;
-    title: string;
-    products: string;
-    description: string;
-  };
+  recipe: Recipe;
 
   constructor(private router: Router) { }
 

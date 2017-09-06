@@ -1,5 +1,4 @@
-<!-- <a [routerLink]="[ '/recipes', recipe?.id ]">Id: {{recipe.id}} Title: {{recipe.title}}</a> {{recipe.title}} -->
-<div class="recipe" (click)="redirectToDetails(recipe?.id)">
+<div class="recipe" (click)="redirectToDetails(recipe?.$key)">
     <ul>
         <li>Name:
             <ul>
