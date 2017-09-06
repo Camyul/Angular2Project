@@ -1,19 +1,14 @@
 <app-header></app-header>
 
 <h3 *ngFor="let recipe of recipes">
-    {{recipe.title}}
-    <ul>
-        <li>Products:
-            <ul>
-                <li>{{recipe.products}}</li>
-            </ul>
-        </li>
-        <li>Description: {{recipe.description}}</li>
-    </ul>
+    <app-recipe [recipe]="recipe"></app-recipe>
 </h3>
 <div class="recipes-container">
+    <label for="">Title:       </label>
     <input type="text" #t><br>
+    <label for="">Products:    </label>
     <input type="text" #p><br>
+    <label for="">Description: </label>
     <input type="text" #d><br>
 
     <button (click)="addRecipie(t.value, p.value, d.value)" class="btn btn-success">Add Recipe</button>

@@ -1,0 +1,10 @@
+.product {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(226, 81, 21);
+}
+
+.product:hover {
+    background-color: #037EE9;
+    cursor: pointer;
+}

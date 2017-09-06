@@ -1,1 +1,11 @@
-<a [routerLink]="[ '/recipes', recipe?.id ]">Id: {{recipe.id}} Title: {{recipe.title}}</a>
+<!-- <a [routerLink]="[ '/recipes', recipe?.id ]">Id: {{recipe.id}} Title: {{recipe.title}}</a> {{recipe.title}} -->
+<div class="product" (click)="redirectToDetails(recipe?.id)">
+    <ul>
+        <li>Name:
+            <ul>
+                <li>{{recipe.title}}</li>
+            </ul>
+        </li>
+        <li>Products: {{recipe.products}}</li>
+    </ul>
+</div>
