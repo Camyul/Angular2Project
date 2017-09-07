@@ -6,6 +6,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesRoutingModule } from './recipe-routing.module';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { InputYearValidationDirective } from '../directives/input-year-validation.directive';
+import { InputStringValidationDirective } from '../directives/input-string-validation.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { InputYearValidationDirective } from '../directives/input-year-validatio
     RecipeComponent,
     RecipeDetailsComponent,
     SummaryPipe,
-    InputYearValidationDirective
+    InputYearValidationDirective,
+    InputStringValidationDirective
   ]
 })
 export class RecipesModule { }
