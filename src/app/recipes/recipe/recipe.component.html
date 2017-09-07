@@ -2,7 +2,7 @@
     <ul>
         <li>Name:
             <ul>
-                <li>{{recipe.title}}</li>
+                <li>{{recipe.title | summary:30 }}</li>
                 <img class="recipe-img" src="{{recipe.img}}" alt="reccipe-img">
                 <li>{{recipe.year}}</li>
             </ul>

@@ -1,3 +1,4 @@
+import { SummaryPipe } from './../pipes/summary.pipe';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
@@ -10,6 +11,11 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     SharedModule,
     RecipesRoutingModule
   ],
-  declarations: [RecipesListComponent, RecipeComponent, RecipeDetailsComponent]
+  declarations: [
+    RecipesListComponent,
+    RecipeComponent,
+    RecipeDetailsComponent,
+    SummaryPipe
+  ]
 })
 export class RecipesModule { }
