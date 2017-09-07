@@ -1,12 +1,9 @@
-<div class="recipe" (click)="redirectToDetails(recipe?.$key)">
-    <ul>
-        <li>Name:
-            <ul>
-                <li>{{recipe.title | summary:30 }}</li>
-                <img class="recipe-img" src="{{recipe.img}}" alt="reccipe-img">
-                <li>{{recipe.year}}</li>
-            </ul>
-        </li>
-        <li>Products: {{recipe.products}}</li>
-    </ul>
+<div class="container-fluid text-center bg-grey">
+    <div class="col-sm-4" (click)="redirectToDetails(recipe?.$key)">
+        <div class="thumbnail">
+            <img src="{{recipe.img}}" alt="recipe image">
+            <p><strong>{{recipe.title}}</strong></p>
+        </div>
+    </div>
 </div>
+
