@@ -1,0 +1,18 @@
+.recipes-container {
+  width: 80%;
+  background-color: #d2d2d2;
+  padding: 3rem;
+  border: 2px dashed #777;
+  margin: 5rem auto;
+}
+
+.recipes-container h3 {
+  padding-bottom: 2rem;
+}
+
+.recipes-container button {
+  width: 50%;
+  height: 4rem;
+  margin: 2rem auto 0;
+  display: block;
+}
