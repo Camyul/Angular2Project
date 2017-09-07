@@ -12,3 +12,18 @@
 .recipe-img {
     width: 300px;
 }
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0CD259;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+    border: 1px solid #0CD259;
+    background-color: rgba(221, 221, 221, 0.89);
+    color: #0CD259;
+}
