@@ -15,7 +15,7 @@
         <label for="">Description:</label>
         <input type="text" #d class="form-control"><br>
         <label for="">Year:</label>
-        <input type="text" #y class="form-control"><br>
+        <input type="text" #y appInputYearValidation class="form-control"><br>
 
         <button (click)="addRecipe(t.value, p.value, i.value, d.value, y.value)" class="btn btn-success">Add Recipe</button>
     </div>

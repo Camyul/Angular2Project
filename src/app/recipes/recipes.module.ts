@@ -5,6 +5,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesRoutingModule } from './recipe-routing.module';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { InputYearValidationDirective } from '../directives/input-year-validation.directive';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     RecipesListComponent,
     RecipeComponent,
     RecipeDetailsComponent,
-    SummaryPipe
+    SummaryPipe,
+    InputYearValidationDirective
   ]
 })
 export class RecipesModule { }
