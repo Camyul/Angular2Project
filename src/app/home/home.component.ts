@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthService) {
     this.user = this.authService.user;
-
+    this.user.subscribe(authData => {
+      // console.log(authData);         // All user info from firebase
+      // console.log(authData.uid);        // User ID from firebase
+  });
   }
   ngOnInit() {
     this.title = 'The Tranquil Gazelles Team Project';

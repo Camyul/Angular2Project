@@ -8,9 +8,9 @@ export class RecipesService {
 
   private recipes$: FirebaseListObservable<any>;
   // private recipe$: FirebaseObjectObservable<any>;
-  private localVar: Recipe;
+  private recipe: Recipe;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     this.recipes$ = db.list('/recipes');
     // this.recipe$ = db.object('/recipes/');
    }
@@ -20,19 +20,23 @@ export class RecipesService {
   }
 
   getById(key: string) {
-    // this.recipe = this.db.object('/recipes/' + key);
 
-    this.recipes$.subscribe((val) => {val.forEach(element => {   // Big Shit, but works
-      if (element.$key === key) {
-        this.localVar = element;
-      }
-    });
-  });
+/* this.recipes$.subscribe(resipeshData => {
+  console.log(resipeshData);              // All data in table: 'recipes'
+}); */
+
+  this.db.list('/recipes', {
+                    query: {
+                        orderByKey: true,
+                        equalTo: key // current recipe id
+                    }
+                  })
+            .subscribe(recipe => this.recipe = recipe[0]);
 
        return new Promise(res => {
         setTimeout(() => {
-          res(this.localVar);
-        }, 0);
+          res(this.recipe);
+        }, 1000);
       });
   }
 
