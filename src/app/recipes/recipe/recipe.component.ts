@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RecipeComponent implements OnInit {
 
   @Input()
-  recipe: Recipe;
+  recipe;
 
   constructor(private router: Router) { }
 

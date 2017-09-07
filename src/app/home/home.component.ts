@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
 
   private title: string;
   private user;
-  private berries = require("../images/berries.jpg");
-  private pizza = require("../images/pizza.jpg");
-  private vegies = require("../images/vegies.jpg");
+  public berries = require('../images/berries.jpg');
+  public pizza = require('../images/pizza.jpg');
+  public vegies = require('../images/vegies.jpg');
 
   constructor(private authService: AuthService) {
     this.user = this.authService.user;

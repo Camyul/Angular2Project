@@ -1,7 +1,7 @@
 import { element } from 'protractor';
 import { Recipe } from './../Models/recipe.model';
 import { Injectable } from '@angular/core';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class RecipesService {
