@@ -7,15 +7,15 @@
     <div class="recipes-container">
         <h3>Add new recipe:</h3>
         <label for="">Title:</label>
-        <input type="text" #t class="form-control"><br>
+        <input type="text" #t appInputStringValidation [appInputFormat]="'uppercase'" class="form-control"><br>
         <label for="">Ingredients:</label>
-        <input type="text" #p class="form-control"><br>
+        <input type="text" #p appInputStringValidation class="form-control"><br>
         <label for="">Picture:</label>
         <input type="text" #i class="form-control"><br>
         <label for="">Description:</label>
-        <input type="text" #d class="form-control"><br>
+        <input type="text" #d appInputStringValidation class="form-control"><br>
         <label for="">Year:</label>
-        <input type="text" #y class="form-control"><br>
+        <input type="text" #y appInputYearValidation class="form-control"><br>
 
         <button (click)="addRecipe(t.value, p.value, i.value, d.value, y.value)" class="btn btn-success">Add Recipe</button>
     </div>
