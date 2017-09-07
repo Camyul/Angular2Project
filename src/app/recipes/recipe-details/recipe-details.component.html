@@ -1,11 +1,11 @@
 <app-header></app-header>
-
-<div class="recipe">
-    <p>Title: {{(recipe | async)?.title}}</p>
-    <p>Products: {{(recipe | async)?.products}}</p>
-    <img class="recipe-img" src="{{(recipe | async)?.img}}" alt="reccipe-img">
-    <p>Description: {{(recipe | async)?.description}}</p>
-    <p>{{(recipe | async)?.year}}</p>
+<div class="container row">
+    <div class="recipe">
+        <p>Title: {{(recipe | async)?.title}}</p>
+        <p>Products: {{(recipe | async)?.products}}</p>
+        <img class="recipe-img" src="{{(recipe | async)?.img}}" alt="reccipe-img">
+        <p>Description: {{(recipe | async)?.description}}</p>
+        <p>{{(recipe | async)?.year}}</p>
+    </div>
 </div>
-
 <app-footer></app-footer>
