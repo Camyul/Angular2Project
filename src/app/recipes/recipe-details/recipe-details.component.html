@@ -3,7 +3,7 @@
     <div class="well">
         <img class="recipe-img" src="{{(recipe | async)?.img}}" alt="reccipe-img">
         <h4>Title: {{(recipe | async)?.title}}</h4>
-        <h4>Products: {{(recipe | async)?.products}}</h4>
+        <h4>Ingredients: {{(recipe | async)?.products}}</h4>
         <h4>Description: {{(recipe | async)?.description}}</h4>
         <h4>{{(recipe | async)?.year}}</h4>
         <button type="button" class="btn" (click)="addToFavourites(recipe)"><strong>Add to Favourites</strong></button>
