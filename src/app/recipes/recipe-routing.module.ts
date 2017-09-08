@@ -4,9 +4,11 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { RecipesResolver } from './recipe-resolver';
+import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favourites.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'all', pathMatch: 'full' },
+    { path: 'favourites', component: RecipesFavouritesComponent},
     { path: 'all', component: RecipesListComponent, resolve: {
       'recipes': RecipesResolver
     } },

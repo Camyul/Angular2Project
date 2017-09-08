@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<div class="container row">
+    <h3 *ngFor="let recipe of (recipes | async)">
+        <div class="container row">
+            <div class="well">
+                <img class="recipe-img" src="{{(recipe)?.img}}" alt="reccipe-img">
+                <h4>Title: {{(recipe)?.title}}</h4>
+                <h4>Products: {{(recipe)?.products}}</h4>
+                <h4>Description: {{(recipe)?.description}}</h4>
+                <h4>{{(recipe)?.year}}</h4>
+            </div>
+        </div>
+    </h3>
+</div>
+<app-footer></app-footer>

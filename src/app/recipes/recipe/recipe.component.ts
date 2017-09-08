@@ -16,6 +16,7 @@ export class RecipeComponent implements OnInit {
 
   redirectToDetails(id) {
     this.router.navigate([ '/recipes', id ]);
+    // console.log(id);
   }
 
   ngOnInit() {

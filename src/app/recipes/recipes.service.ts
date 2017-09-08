@@ -46,7 +46,13 @@ export class RecipesService {
         }, 1000);
       });
   }
-
+  getAllFavourites() {
+    return new Promise(res => { // Here get data from Database
+      setTimeout(() => {
+        res(this.favourites$);
+      }, 2000);
+    });
+  }
   getAll() {
     return new Promise(res => { // Here get data from Database
       setTimeout(() => {
