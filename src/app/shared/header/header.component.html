@@ -9,10 +9,13 @@
                 <li><a [routerLink]="[ '/recipes']">All Recipes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="isLoggedIn">
+                    <a href="#" id="userName"> {{ (user | async)?.displayName }} </a>
+                </li>
+                <!-- <li *ngIf="isLoggedIn"><img id="userPic" src="{{ (user | async)?.photoURL }}" class="img-circle img-responsive center-block" alt=""></li> -->
                 <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
                 <li *ngIf="isLoggedIn"><a href="/" (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
-

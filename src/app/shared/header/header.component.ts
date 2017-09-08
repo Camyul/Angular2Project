@@ -8,9 +8,11 @@ import { AuthService } from '../../providers/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public user;
   public isLoggedIn: Boolean = false;
 
   constructor(private authService: AuthService) {
+    this.user = this.authService.user;
     this.authService.af.authState.subscribe(
       (auth) => {
         if (auth == null) {
