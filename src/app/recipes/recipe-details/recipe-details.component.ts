@@ -1,7 +1,7 @@
 import { Recipe } from './../../Models/recipe.model';
 import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -12,7 +12,15 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe;
 
-  constructor(private recipesService: RecipesService, private activatedRout: ActivatedRoute) { }
+  constructor(private recipesService: RecipesService, private activatedRout: ActivatedRoute, private router: Router) { }
+
+
+  addToFavourites(recipe) {
+    recipe.then( data =>
+      this.recipesService.addFavourite(data)
+    );
+    this.router.navigate(['/recipes']);
+  }
 
   ngOnInit() {
     const id = this.activatedRout.snapshot.params['id']; // TODO: check for null

@@ -2,23 +2,30 @@ import { element } from 'protractor';
 import { Recipe } from './../Models/recipe.model';
 import { Injectable } from '@angular/core';
 import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { AuthService } from '../providers/auth.service';
 
 @Injectable()
 export class RecipesService {
 
   private recipes$: FirebaseListObservable<any>;
-  // private recipe$: FirebaseObjectObservable<any>;
+  private favourites$: FirebaseListObservable<any>;
   private recipe: Recipe;
 
-  constructor(private db: AngularFireDatabase) {
-    this.recipes$ = db.list('/recipes');
-    // this.recipe$ = db.object('/recipes/');
-   }
+  constructor(private db: AngularFireDatabase, private authService: AuthService) {
+
+     authService.user.subscribe(authData => {
+       const userId = authData.uid;
+       this.favourites$ = db.list('/' + userId);
+      });
+     this.recipes$ = db.list('/recipes');
+    }
 
   addRecipe(recipe: Recipe) {
     this.recipes$.push(recipe);
   }
-
+  addFavourite(recipe: Recipe) {
+    this.favourites$.push(recipe);
+  }
   getById(key: string) {
 
 /* this.recipes$.subscribe(resipeshData => {
