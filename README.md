@@ -1,7 +1,5 @@
 ﻿# Angular2Project
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Camyul/Angular2Project.svg)](https://greenkeeper.io/)
-
 ## Team Members
 
 | Name | Telerik Student system username |
