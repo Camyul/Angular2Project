@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
+  myform: any;
 
   recipes;
 
@@ -17,8 +18,10 @@ export class RecipesListComponent implements OnInit {
     this.recipes = this.activatedRoute.snapshot.data['recipes'];
   }
 
+
   addRecipe(title, products, img, description, year) {
-    this.recipesService.addRecipe({title: title, products: products, img: img, description: description, year: year});
-  }
+      this.recipesService.addRecipe({title: title, products: products, img: img, description: description, year: year});
+    }
+
 
 }
