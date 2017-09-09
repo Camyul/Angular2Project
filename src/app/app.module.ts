@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { NotfoundComponent } from './notfound/notfound.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SliderComponent
 ],
   imports: [
     BrowserModule,

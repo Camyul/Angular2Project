@@ -2,7 +2,7 @@
     <div class="col-sm-4" (click)="redirectToDetails(recipe?.$key)">
         <div class="thumbnail">
             <img class="img-button" src="{{recipe.img}}" alt="recipe image">
-            <p><strong>{{recipe.title}}</strong></p>
+            <p><strong>{{recipe.title | summary:30 }}</strong></p>
         </div>
     </div>
 </div>
