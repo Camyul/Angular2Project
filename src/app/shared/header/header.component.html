@@ -8,6 +8,7 @@
                 <li><a href="">Home</a></li>
                 <li><a [routerLink]="[ '/recipes']">All Recipes</a></li>
                 <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/favourites']">Favourites</a></li>
+                <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/myrecipes']">My Recipes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="isLoggedIn">
