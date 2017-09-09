@@ -29,7 +29,12 @@ export class RecipesListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.recipes = this.activatedRoute.snapshot.data['recipes'];
+    this.recipes = this.recipesService.getRecipesByCreationDate()
+      .then( data => {
+        this.recipes = data;
+        // console.log(this.recipes);
+        }
+      );
   }
 
 

@@ -76,14 +76,21 @@ export class RecipesService {
     });
   }
 
-  getRecipesByCreationDate(count: number) {
-
-    this.recipesByDate$ = this.db.list('/recipes', {
-      query: {
-        orderByChild: 'created',
-        limitToLast: count
-      }
-    });
+  getRecipesByCreationDate(count?: number) {
+    if (count) {
+      this.recipesByDate$ = this.db.list('/recipes', {
+        query: {
+          orderByChild: 'created',
+          limitToLast: count
+        }
+      }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+    } else {
+      this.recipesByDate$ = this.db.list('/recipes', {
+        query: {
+          orderByChild: 'created'
+        }
+      }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+    }
 
     return new Promise(res => { // Here get data from Database
       setTimeout(() => {
