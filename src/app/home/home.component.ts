@@ -29,12 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.title = 'The Tranquil Gazelles Team Project';
-    this.recipes = this.recipesService.getAll()
-      .then( data => {
-        this.recipes = data;
-        // console.log(this.recipes);
-        }
-      );
+    this.recipes = this.recipesService.getRecipesByYear;
   }
 
 }

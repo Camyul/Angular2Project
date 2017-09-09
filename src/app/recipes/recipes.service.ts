@@ -10,6 +10,7 @@ export class RecipesService {
   private recipes$: FirebaseListObservable<any>;
   private favourites$: FirebaseListObservable<any>;
   private recipe: Recipe;
+  public getRecipesByYear;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
 
@@ -18,6 +19,12 @@ export class RecipesService {
        this.favourites$ = db.list('/' + userId);
       });
      this.recipes$ = db.list('/recipes');
+     this.getRecipesByYear = this.recipes$ = db.list('/recipes', {
+        query: {
+          orderByChild: 'year',
+          limitToLast: 8
+        }
+      });
     }
 
   addRecipe(recipe: Recipe) {
@@ -65,5 +72,4 @@ export class RecipesService {
       }, 1000);
     });
   }
-
 }
