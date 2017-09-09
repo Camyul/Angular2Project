@@ -33,9 +33,17 @@ h1 {
     margin-bottom: 2rem;
 }
 
+.recipe-container:hover {
+    cursor: pointer;
+}
+
 .recipe-container img {
     max-width: 100%;
     margin-bottom: 1rem;
+}
+
+.recipe-container img:hover {
+    opacity: 0.7;
 }
 
 .eq-height {
