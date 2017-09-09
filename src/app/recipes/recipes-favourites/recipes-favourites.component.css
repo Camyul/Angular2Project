@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --- ESSENTIALS --- */
 
 
@@ -311,4 +312,9 @@ span.input-group-addon i {
     margin: 0 0 25px 0;
     padding: 0;
     font-size: 16px;
+=======
+.recipe-img {
+  max-width: 100%;
+  height: auto;
+>>>>>>> 712a920523a56f26788d893ebe850b9452fe86e1
 }

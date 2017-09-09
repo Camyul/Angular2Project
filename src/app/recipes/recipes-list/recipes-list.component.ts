@@ -1,3 +1,4 @@
+import { AuthService } from './../../providers/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +12,20 @@ export class RecipesListComponent implements OnInit {
   myform: any;
 
   recipes;
+  public isLoggedIn: Boolean = false;
 
-  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute) {  }
+  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) { 
+
+    this.authService.af.authState.subscribe(
+      (auth) => {
+        if (auth == null) {
+          this.isLoggedIn = false;
+        } else {
+          this.isLoggedIn = true;
+        }
+      }
+    );
+   }
 
   ngOnInit() {
     this.recipes = this.activatedRoute.snapshot.data['recipes'];

@@ -4,7 +4,7 @@
     <h3 *ngFor="let recipe of (recipes | async)">
         <app-recipe [recipe]="recipe"></app-recipe>
     </h3>
-    <div class="recipes-container">
+    <div *ngIf="isLoggedIn" class="recipes-container">
         <form ng-submit="blur">
             <h3>Add new recipe:</h3>
             <label for="">Title:</label>
