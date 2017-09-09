@@ -83,16 +83,16 @@ export class RecipesService {
           orderByChild: 'created',
           limitToLast: count
         }
-      }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+      }).map((array) => array.reverse()) as FirebaseListObservable<any>;
     } else {
       this.recipesByDate$ = this.db.list('/recipes', {
         query: {
           orderByChild: 'created'
         }
-      }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+      }).map((array) => array.reverse()) as FirebaseListObservable<any>;
     }
 
-    return new Promise(res => { // Here get data from Database
+    return new Promise(res => {
       setTimeout(() => {
         res(this.recipesByDate$);
       }, 1000);
