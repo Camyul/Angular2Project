@@ -11,6 +11,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="isLoggedIn">
+                    <img id="user-avatar"src="{{ userPhoto }}" alt="user avatar">
                     <a href="#" id="userName"> {{ (user | async)?.displayName }} </a>
                 </li>
                 <!-- <li *ngIf="isLoggedIn"><img id="userPic" src="{{ (user | async)?.photoURL }}" class="img-circle img-responsive center-block" alt=""></li> -->
