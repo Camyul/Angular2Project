@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
+import { RecipesService } from './../recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
-
 import { AuthService } from '../providers/auth.service';
 
 @Component({
@@ -14,16 +15,29 @@ export class HomeComponent implements OnInit {
   public berries = require('../images/berries.jpg');
   public pizza = require('../images/pizza.jpg');
   public vegies = require('../images/vegies.jpg');
+  public recipes;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private recipesService: RecipesService, private router: Router) {
     this.user = this.authService.user;
     this.user.subscribe(authData => {
       // console.log(authData);         // All user info from firebase
       // console.log(authData.uid);        // User ID from firebase
-  });
+    });
   }
+
+   redirectToDetails(id) {
+    this.router.navigate([ '/recipes', id ]);
+    // console.log(id);
+  }
+
   ngOnInit() {
     this.title = 'The Tranquil Gazelles Team Project';
+    this.recipes = this.recipesService.getAll()
+      .then( data => {
+        this.recipes = data;
+        // console.log(this.recipes);
+        }
+      );
   }
 
 }

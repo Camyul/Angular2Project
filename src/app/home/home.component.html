@@ -52,4 +52,15 @@
     <p>We have created a fictional food SPA.</p>
 </div>
 
+<div class="latest-recipes row eq-height">
+  <h3 class="col-sm-12">Enjoy Our Recipes</h3>
+    <div *ngFor="let recipe of (recipes | async)" class="col-sm-12 col-md-3 eq-height" (click)="redirectToDetails(recipe?.$key)">
+      <div class="recipe-container">
+        <img src="{{recipe.img}}" alt="recipe image">
+        <p><strong>{{recipe.title}}</strong></p>
+      </div>
+    </div>
+
+</div>
+
 <app-footer></app-footer>
