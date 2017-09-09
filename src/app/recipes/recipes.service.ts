@@ -11,8 +11,8 @@ export class RecipesService {
   private recipes$: FirebaseListObservable<any>;
   private favourites$: FirebaseListObservable<any>;
   private myRecipes$: FirebaseListObservable<any>;
+  private recipesByDate$: FirebaseListObservable<any>;
   private recipe: Recipe;
-  public getRecipesByYear;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
 
@@ -21,12 +21,6 @@ export class RecipesService {
        this.favourites$ = db.list('/' + userId);
       });
      this.recipes$ = db.list('/recipes');
-     this.getRecipesByYear = this.recipes$ = db.list('/recipes', {
-        query: {
-          orderByChild: 'year',
-          limitToLast: 8
-        }
-      });
     }
 
   addRecipe(recipe) {
@@ -59,11 +53,11 @@ export class RecipesService {
                   })
             .subscribe(recipe => this.recipe = recipe[0]);
 
-       return new Promise(res => {
-        setTimeout(() => {
-          res(this.recipe);
-        }, 1000);
-      });
+    return new Promise(res => {
+      setTimeout(() => {
+        res(this.recipe);
+      }, 1000);
+    });
   }
 
   getByUser(key: string) {
@@ -75,12 +69,28 @@ export class RecipesService {
       }
     });
 
-         return new Promise(res => { // Here get data from Database
-          setTimeout(() => {
-            res(this.myRecipes$);
-          }, 1000);
-        });
+    return new Promise(res => { // Here get data from Database
+      setTimeout(() => {
+        res(this.myRecipes$);
+      }, 1000);
+    });
+  }
+
+  getRecipesByCreationDate(count: number) {
+
+    this.recipesByDate$ = this.db.list('/recipes', {
+      query: {
+        orderByChild: 'created',
+        limitToLast: count
       }
+    });
+
+    return new Promise(res => { // Here get data from Database
+      setTimeout(() => {
+        res(this.recipesByDate$);
+      }, 1000);
+    });
+  }
 
   getAllFavourites() {
     return new Promise(res => { // Here get data from Database
