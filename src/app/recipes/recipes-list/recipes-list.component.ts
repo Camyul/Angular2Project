@@ -1,3 +1,4 @@
+import { Recipe } from './../../Models/recipe.model';
 import { AuthService } from './../../providers/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from './../recipes.service';
@@ -14,7 +15,7 @@ export class RecipesListComponent implements OnInit {
   recipes;
   public isLoggedIn: Boolean = false;
 
-  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) { 
+  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) {
 
     this.authService.af.authState.subscribe(
       (auth) => {
@@ -33,7 +34,13 @@ export class RecipesListComponent implements OnInit {
 
 
   addRecipe(title, products, img, description, year) {
-      this.recipesService.addRecipe({title: title, products: products, img: img, description: description, year: year});
+
+    this.authService.af.authState.subscribe(
+      (auth) => {
+
+      this.recipesService.addRecipe({title, products, img, description, year, author: auth.uid});
+      }
+    );
     }
 
 

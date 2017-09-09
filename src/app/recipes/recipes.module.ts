@@ -1,3 +1,4 @@
+import { MyrecipesModule } from './myrecipes/myrecipes.module';
 import { SummaryPipe } from './../pipes/summary.pipe';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favouri
 @NgModule({
   imports: [
     SharedModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    MyrecipesModule
   ],
   declarations: [
     RecipesListComponent,

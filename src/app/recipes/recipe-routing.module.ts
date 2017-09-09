@@ -1,3 +1,4 @@
+import { MyrecipesComponent } from './myrecipes/myrecipes.component';
 import { RecipeGuardService } from './guards/recipe-guard.service';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
@@ -9,6 +10,7 @@ import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favouri
 const routes: Routes = [
     { path: '', redirectTo: 'all', pathMatch: 'full' },
     { path: 'favourites', component: RecipesFavouritesComponent},
+    { path: 'myrecipes', component: MyrecipesComponent},
     { path: 'all', component: RecipesListComponent, resolve: {
       'recipes': RecipesResolver
     } },
