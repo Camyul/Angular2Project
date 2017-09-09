@@ -1,5 +1,5 @@
+import { AuthService } from './../../providers/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../providers/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +9,13 @@ import { AuthService } from '../../providers/auth.service';
 export class HeaderComponent implements OnInit {
 
   public user;
-  public userPhoto;
+  public currUser;
   public isLoggedIn: Boolean = false;
 
   constructor(private authService: AuthService) {
     this.user = this.authService.user;
-    this.userPhoto = this.authService.af.auth.currentUser.photoURL;
+    this.currUser = this.authService.af.auth.currentUser;
+
     this.authService.af.authState.subscribe(
       (auth) => {
         if (auth == null) {

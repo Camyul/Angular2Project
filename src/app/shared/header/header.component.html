@@ -12,7 +12,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="isLoggedIn">
                     <div id="userName"> {{ (user | async)?.displayName | welcome }} </div>
-                    <img id="user-avatar"src="{{ userPhoto }}" alt="user avatar">
+                    <img id="user-avatar"src="{{ (currUser | async)?.photoURL }}">
                 </li>
                 <!-- <li *ngIf="isLoggedIn"><img id="userPic" src="{{ (user | async)?.photoURL }}" class="img-circle img-responsive center-block" alt=""></li> -->
                 <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
