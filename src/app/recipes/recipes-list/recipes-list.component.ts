@@ -34,11 +34,11 @@ export class RecipesListComponent implements OnInit {
 
 
   addRecipe(title, products, img, description, year) {
-
+    const currDate = new Date().getTime();
     this.authService.af.authState.subscribe(
       (auth) => {
 
-      this.recipesService.addRecipe({title, products, img, description, year, author: auth.uid});
+      this.recipesService.addRecipe({title, products, img, description, year, author: auth.uid, created: currDate});
       }
     );
     }
