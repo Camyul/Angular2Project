@@ -1,3 +1,4 @@
+import { WelcomePipe } from './../pipes/welcome.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
     CommonModule,
     SharedRoutingModule
   ],
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, WelcomePipe],
   exports: [
   CommonModule,
   HeaderComponent,
