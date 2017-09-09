@@ -9,6 +9,7 @@
                 <h4>Ingredients: {{(recipe)?.products}}</h4>
                 <h4>Description: {{(recipe)?.description}}</h4>
                 <h4>{{(recipe)?.year}}</h4>
+                <button class="btn btn-danger" (click)="delFavourite((recipe)?.$key)">Delete from Favourites</button>
             </div>
         </div>
     </h3>

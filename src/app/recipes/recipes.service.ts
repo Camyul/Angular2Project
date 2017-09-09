@@ -26,6 +26,11 @@ export class RecipesService {
   addFavourite(recipe: Recipe) {
     this.favourites$.push(recipe);
   }
+
+  deleteFromFavourite(key: string) {
+    this.favourites$.remove(key);
+  }
+
   getById(key: string) {
 
 /* this.recipes$.subscribe(resipeshData => {

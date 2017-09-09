@@ -24,4 +24,10 @@ export class RecipesFavouritesComponent implements OnInit {
       );
     }
 
+    delFavourite(key) {
+      // console.log(key);
+
+      this.recipesService.deleteFromFavourite(key);
+    }
+
 }
