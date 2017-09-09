@@ -83,13 +83,13 @@ export class RecipesService {
           orderByChild: 'created',
           limitToLast: count
         }
-      }).map((array) => array.reverse()) as FirebaseListObservable<any>;
+      });
     } else {
       this.recipesByDate$ = this.db.list('/recipes', {
         query: {
           orderByChild: 'created'
         }
-      }).map((array) => array.reverse()) as FirebaseListObservable<any>;
+      });
     }
 
     return new Promise(res => {
