@@ -12,9 +12,6 @@ export class HomeComponent implements OnInit {
 
   private title: string;
   private user;
-  public berries = require('../images/berries.jpg');
-  public pizza = require('../images/pizza.jpg');
-  public vegies = require('../images/vegies.jpg');
   public recipes;
 
   constructor(private authService: AuthService, private recipesService: RecipesService, private router: Router) {
