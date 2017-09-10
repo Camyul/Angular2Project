@@ -55,8 +55,17 @@ export class RecipesListComponent implements OnInit {
                 );
               this.recipes.push(newRecipe);
           });
+          this.recipes.sort((a, b) => {
+            if (a.created < b.created) {
+              return 1;
+            } else if (a.created > b.created) {
+              return -1;
+            } else {
+              return 0;
+            }
+          });
 
-          // console.log(this.allRecipes);
+          // console.log(this.recipes);
         },
           error => this.errorMessage = <any>error);
   }

@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container row eq-height">
-    <app-recipe class="col-sm-4 eq-height" *ngFor="let recipe of recipes.reverse()" [recipe]="recipe"></app-recipe>
+    <app-recipe class="col-sm-4 eq-height" *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe>
     <div *ngIf="isLoggedIn" class="recipes-container">
         <form ng-submit="blur">
             <h3>Add new recipe:</h3>

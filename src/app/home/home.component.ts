@@ -55,6 +55,16 @@ export class HomeComponent implements OnInit {
                 );
               this.allRecipes.push(newRecipe);
           });
+          // console.log(this.allRecipes);
+          this.allRecipes.sort((a, b) => {
+            if (a.created < b.created) {
+              return 1;
+            } else if (a.created > b.created) {
+              return -1;
+            } else {
+              return 0;
+            }
+          });
 
           // console.log(this.allRecipes);
         },
