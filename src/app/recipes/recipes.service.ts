@@ -16,10 +16,13 @@ export class RecipesService {
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
 
-     authService.user.subscribe(authData => {
-       const userId = authData.uid;
-       this.favourites$ = db.list('/' + userId);
-      });
+      authService.user.subscribe(authData => {
+       if (authData !== null) {
+         const userId = authData.uid;
+         this.favourites$ = db.list('/' + userId);
+       }
+        });
+
      this.recipes$ = db.list('/recipes');
     }
 
