@@ -2,7 +2,7 @@
 
 Scheme of Project:
 
-![](https://github.com/Camyul/Angular2Project/tree/master/src/assets/images/structure.png)
+![](https://github.com/Camyul/Angular2Project/tree/master/src/assets/images/structure.png?raw=true)
 
 ## Team Members
 
