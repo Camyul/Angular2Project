@@ -1,5 +1,8 @@
+import { RecipeWithKey } from './../Models/recipeWithKey.model';
+import { Recipe } from './../Models/recipe.model';
+import { Router } from '@angular/router';
+import { RecipesService } from './../recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
-
 import { AuthService } from '../providers/auth.service';
 
 @Component({
@@ -11,19 +14,60 @@ export class HomeComponent implements OnInit {
 
   private title: string;
   private user;
-  public berries = require('../images/berries.jpg');
-  public pizza = require('../images/pizza.jpg');
-  public vegies = require('../images/vegies.jpg');
-
-  constructor(private authService: AuthService) {
+  public recipes;
+  public allRecipes = [];
+  public errorMessage;
+  constructor(private authService: AuthService, private recipesService: RecipesService, private router: Router) {
     this.user = this.authService.user;
     this.user.subscribe(authData => {
       // console.log(authData);         // All user info from firebase
       // console.log(authData.uid);        // User ID from firebase
-  });
-  }
-  ngOnInit() {
-    this.title = 'The Tranquil Gazelles Team Project';
+    });
   }
 
+   redirectToDetails(id) {
+    this.router.navigate([ '/recipes', id ]);
+    // console.log(id);
+  }
+
+  ngOnInit() {
+    this.title = 'The Tranquil Gazelles Team Project';
+    this.recipes = this.recipesService.getRecipesByCreationDate(8)
+      .then( data => {
+        this.recipes = data;
+        // console.log(this.recipes);
+        }
+      );
+    this.recipesService.getAllRecipes()
+        .subscribe((data) => {
+
+          Object.keys(data).forEach((recipeKey) => {
+              const newRecipe =
+                new RecipeWithKey(
+                  data[recipeKey].title,
+                  data[recipeKey].products,
+                  data[recipeKey].img,
+                  data[recipeKey].description,
+                  data[recipeKey].yeat,
+                  data[recipeKey].author,
+                  data[recipeKey].created,
+                  recipeKey
+                );
+              this.allRecipes.push(newRecipe);
+          });
+          // console.log(this.allRecipes);
+          this.allRecipes.sort((a, b) => {
+            if (a.created < b.created) {
+              return 1;
+            } else if (a.created > b.created) {
+              return -1;
+            } else {
+              return 0;
+            }
+          });
+
+          // console.log(this.allRecipes);
+        },
+          error => this.errorMessage = <any>error);
+  }
 }

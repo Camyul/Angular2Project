@@ -18,3 +18,11 @@
     opacity: 0.5;
     cursor: pointer;
 }
+
+.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}

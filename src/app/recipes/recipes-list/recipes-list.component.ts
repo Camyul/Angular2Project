@@ -1,3 +1,5 @@
+import { RecipeWithKey } from './../../Models/recipeWithKey.model';
+import { Recipe } from './../../Models/recipe.model';
 import { AuthService } from './../../providers/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from './../recipes.service';
@@ -11,10 +13,11 @@ import { Component, OnInit } from '@angular/core';
 export class RecipesListComponent implements OnInit {
   myform: any;
 
-  recipes;
+  public recipes = [];
+  public errorMessage;
   public isLoggedIn: Boolean = false;
 
-  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) { 
+  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) {
 
     this.authService.af.authState.subscribe(
       (auth) => {
@@ -28,12 +31,54 @@ export class RecipesListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.recipes = this.activatedRoute.snapshot.data['recipes'];
+    // this.recipes = this.recipesService.getRecipesByCreationDate()
+    //   .then( data => {
+    //     this.recipes = data;
+    //     // console.log(this.recipes);
+    //     }
+    //   );
+
+    this.recipesService.getAllRecipes()
+        .subscribe((data) => {
+
+          Object.keys(data).forEach((recipeKey) => {
+              const newRecipe =
+                new RecipeWithKey(
+                  data[recipeKey].title,
+                  data[recipeKey].products,
+                  data[recipeKey].img,
+                  data[recipeKey].description,
+                  data[recipeKey].yeat,
+                  data[recipeKey].author,
+                  data[recipeKey].created,
+                  recipeKey
+                );
+              this.recipes.push(newRecipe);
+          });
+          this.recipes.sort((a, b) => {
+            if (a.created < b.created) {
+              return 1;
+            } else if (a.created > b.created) {
+              return -1;
+            } else {
+              return 0;
+            }
+          });
+
+          // console.log(this.recipes);
+        },
+          error => this.errorMessage = <any>error);
   }
 
 
   addRecipe(title, products, img, description, year) {
-      this.recipesService.addRecipe({title: title, products: products, img: img, description: description, year: year});
+    const currDate = new Date().getTime();
+    this.authService.af.authState.subscribe(
+      (auth) => {
+
+      this.recipesService.addRecipe({title, products, img, description, year, author: auth.uid, created: currDate});
+      }
+    );
     }
 
 

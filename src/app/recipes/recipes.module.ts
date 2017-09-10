@@ -1,3 +1,5 @@
+import { RecipesFilteredComponent } from './recipes-filtered/recipes-filtered.component';
+import { MyrecipesModule } from './myrecipes/myrecipes.module';
 import { SummaryPipe } from './../pipes/summary.pipe';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -9,14 +11,18 @@ import { InputYearValidationDirective } from '../directives/input-year-validatio
 import { InputStringValidationDirective } from '../directives/input-string-validation.directive';
 import { InputFormatDirective } from '../directives/input-format.directive';
 import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favourites.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     SharedModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    MyrecipesModule,
+    FormsModule
   ],
   declarations: [
     RecipesListComponent,
+    RecipesFilteredComponent,
     RecipeComponent,
     RecipeDetailsComponent,
     SummaryPipe,

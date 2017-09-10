@@ -28,4 +28,8 @@ export class RecipeDetailsComponent implements OnInit {
     this.recipe = this.recipesService.getById(id);
   }
 
+  onBack(): void {
+    this.router.navigate(['/recipes']);
+  }
+
 }

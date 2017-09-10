@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { NotfoundComponent } from './notfound/notfound.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 @NgModule({
@@ -23,13 +25,15 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SliderComponent
 ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    HttpModule,
     AlertModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features

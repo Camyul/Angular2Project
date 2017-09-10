@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<section class="section-background">
+    <div id="offers-container" class="container">
+        <h2 class="page-header"> </h2>
+        <section id="main-heading" class="section-wrapper">
+            <div class="row offersList">
+                <div class="col-md-4 col-sm-6" *ngFor="let recipe of (recipes | async)">
+                    <div class="media offer">
+                        <div id="offer"></div>
+                        <fieldset>
+                            <legend>
+                                <h4 class="recipe-title">{{(recipe)?.title}}</h4>
+                            </legend>
+                            <h4 class="recipe-products">Ingredients:<br> {{(recipe)?.products}}</h4>
+                            <h4 class="recipe-description">Description:<br> {{(recipe)?.description}}</h4>
+                            <h4 class="recipe-year">{{(recipe)?.year}}</h4>
+                            <button class="btn btn-danger" (click)="deleteRecipe((recipe)?.$key)">Delete</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<app-footer></app-footer>

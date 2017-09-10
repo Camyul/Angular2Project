@@ -1,9 +1,7 @@
 <app-header></app-header>
 
-<div class="container row">
-    <h3 *ngFor="let recipe of (recipes | async)">
-        <app-recipe [recipe]="recipe"></app-recipe>
-    </h3>
+<div class="container row eq-height">
+    <app-recipe class="col-sm-4 eq-height" *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe>
     <div *ngIf="isLoggedIn" class="recipes-container">
         <form ng-submit="blur">
             <h3>Add new recipe:</h3>

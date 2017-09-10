@@ -7,11 +7,14 @@
             <ul class="nav navbar-nav">
                 <li><a href="">Home</a></li>
                 <li><a [routerLink]="[ '/recipes']">All Recipes</a></li>
+                <li><a [routerLink]="[ '/recipes/filterby']">Filter by ingredient</a></li>
                 <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/favourites']">Favourites</a></li>
+                <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/myrecipes']">My Recipes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="isLoggedIn">
-                    <a href="#" id="userName"> {{ (user | async)?.displayName }} </a>
+                    <div id="userName"> {{ (user | async)?.displayName | welcome }} </div>
+                    <!--<img id="user-avatar"src="{{ (currUser | async)?.photoURL }}">-->
                 </li>
                 <!-- <li *ngIf="isLoggedIn"><img id="userPic" src="{{ (user | async)?.photoURL }}" class="img-circle img-responsive center-block" alt=""></li> -->
                 <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
