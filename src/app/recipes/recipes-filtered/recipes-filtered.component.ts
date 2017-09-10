@@ -14,7 +14,7 @@ export class RecipesFilteredComponent implements OnInit {
   public errorMessage;
   public isLoggedIn: Boolean = false;
 
-  _listFilter: string;
+  private _listFilter: string;
   get listFilter(): string {
       return this._listFilter;
   }

@@ -14,7 +14,7 @@ import { moveIn } from '../router.animations';
   animations: [moveIn()]
   // host: {'[@moveIn]': ''}
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   error: any;
   user: Observable<firebase.User>;
@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('home');
     }
   });
-}
-
-ngOnInit() {
 }
 
 loginGoogle() {
