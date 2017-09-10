@@ -10,7 +10,7 @@
 
 <div class="latest-recipes row eq-height">
   <h3 class="col-sm-12">Enjoy Our Recipes</h3>
-    <div *ngFor="let recipe of allRecipesReversed; let i=index" class="col-sm-12 col-md-3 eq-height" (click)="redirectToDetails(recipe?.key)">
+    <div *ngFor="let recipe of allRecipes.reverse(); let i=index" class="col-sm-12 col-md-3 eq-height" (click)="redirectToDetails(recipe?.key)">
       <div *ngIf="i<8" class="recipe-container"> <!-- shows only 8 recipes -->
         <img src="{{recipe.img}}" alt="recipe image">
         <p><strong>{{recipe.title}}</strong></p>

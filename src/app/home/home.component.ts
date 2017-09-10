@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   private user;
   public recipes;
   public allRecipes = [];
-  public allRecipesReversed = [];
   public errorMessage;
   constructor(private authService: AuthService, private recipesService: RecipesService, private router: Router) {
     this.user = this.authService.user;
@@ -60,7 +59,5 @@ export class HomeComponent implements OnInit {
           // console.log(this.allRecipes);
         },
           error => this.errorMessage = <any>error);
-    this.allRecipesReversed = this.allRecipes.reverse();
   }
-
 }
