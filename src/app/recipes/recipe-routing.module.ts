@@ -1,3 +1,4 @@
+import { AuthGuard } from './../providers/auth-guard.service';
 import { MyrecipesComponent } from './myrecipes/myrecipes.component';
 import { RecipeGuardService } from './guards/recipe-guard.service';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
@@ -9,8 +10,8 @@ import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favouri
 
 const routes: Routes = [
     { path: '', redirectTo: 'all', pathMatch: 'full' },
-    { path: 'favourites', component: RecipesFavouritesComponent},
-    { path: 'myrecipes', component: MyrecipesComponent},
+    { path: 'favourites', component: RecipesFavouritesComponent, canActivate: [AuthGuard]},
+    { path: 'myrecipes', component: MyrecipesComponent, canActivate: [AuthGuard]},
     { path: 'all', component: RecipesListComponent, resolve: {
       'recipes': RecipesResolver
     } },
