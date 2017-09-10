@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipesFilteredComponent } from './recipes-filtered.component';
 
-describe('RecipesListComponent', () => {
+/*describe('RecipesListComponent', () => {
   let component: RecipesFilteredComponent;
   let fixture: ComponentFixture<RecipesFilteredComponent>;
 
@@ -22,4 +22,4 @@ describe('RecipesListComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/
