@@ -4,6 +4,8 @@ import { Recipe } from './../Models/recipe.model';
 import { Injectable } from '@angular/core';
 import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from '../providers/auth.service';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RecipesService {
@@ -14,7 +16,7 @@ export class RecipesService {
   private recipesByDate$: FirebaseListObservable<any>;
   private recipe: Recipe;
 
-  constructor(private db: AngularFireDatabase, private authService: AuthService) {
+  constructor(private db: AngularFireDatabase, private authService: AuthService, private http: Http) {
 
      authService.user.subscribe(authData => {
        const userId = authData.uid;
@@ -112,5 +114,10 @@ export class RecipesService {
         res(this.recipes$);
       }, 1000);
     });
+  }
+
+  getAllRecipes(): Observable<Recipe[]> {
+      return this.http.get('https://angularteamproject.firebaseio.com/recipes.json')
+        .map(x => x.json());
   }
 }
