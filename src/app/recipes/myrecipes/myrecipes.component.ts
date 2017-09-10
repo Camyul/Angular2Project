@@ -22,7 +22,7 @@ export class MyrecipesComponent implements OnInit {
 
           this.recipesService.getByUser(userId)
           .then( data =>  {
-            console.log(data);
+            // console.log(data);
             this.recipes = data;
             }
           );
