@@ -12,6 +12,7 @@ import { InputStringValidationDirective } from '../directives/input-string-valid
 import { InputFormatDirective } from '../directives/input-format.directive';
 import { RecipesFavouritesComponent } from './recipes-favourites/recipes-favourites.component';
 import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from '../directives/highlight.directive';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     InputYearValidationDirective,
     InputStringValidationDirective,
     InputFormatDirective,
-    RecipesFavouritesComponent
+    RecipesFavouritesComponent,
+    HighlightDirective
   ]
 })
 export class RecipesModule { }

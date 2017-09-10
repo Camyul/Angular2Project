@@ -7,4 +7,5 @@ import { RecipesService } from './recipes/recipes.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  color: string;
 }
