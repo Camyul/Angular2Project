@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent {
 
   @Input()
   recipe;
@@ -17,9 +17,6 @@ export class RecipeComponent implements OnInit {
   redirectToDetails(id) {
     this.router.navigate([ '/recipes', id ]);
     // console.log(id);
-  }
-
-  ngOnInit() {
   }
 
 }

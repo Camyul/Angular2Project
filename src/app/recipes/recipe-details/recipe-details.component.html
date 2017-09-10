@@ -6,7 +6,12 @@
         <h4>Ingredients: {{(recipe | async)?.products}}</h4>
         <h4>Description: {{(recipe | async)?.description}}</h4>
         <h4>{{(recipe | async)?.year}}</h4>
-        <button type="button" class="btn" (click)="addToFavourites(recipe)"><strong>Add to Favourites</strong></button>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+        <button type="button" class="btn" (click)="addToFavourites(recipe)">
+            <strong>Add to Favourites</strong>
+        </button>
     </div>
 </div>
 <app-footer></app-footer>
