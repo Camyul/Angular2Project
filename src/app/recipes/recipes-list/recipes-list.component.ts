@@ -1,3 +1,4 @@
+import { RecipeWithKey } from './../../Models/recipeWithKey.model';
 import { Recipe } from './../../Models/recipe.model';
 import { AuthService } from './../../providers/auth.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class RecipesListComponent implements OnInit {
   myform: any;
 
-  recipes;
+  public recipes = [];
+  public errorMessage;
   public isLoggedIn: Boolean = false;
 
   constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private authService: AuthService) {
@@ -29,12 +31,34 @@ export class RecipesListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.recipes = this.recipesService.getRecipesByCreationDate()
-      .then( data => {
-        this.recipes = data;
-        // console.log(this.recipes);
-        }
-      );
+    // this.recipes = this.recipesService.getRecipesByCreationDate()
+    //   .then( data => {
+    //     this.recipes = data;
+    //     // console.log(this.recipes);
+    //     }
+    //   );
+
+    this.recipesService.getAllRecipes()
+        .subscribe((data) => {
+
+          Object.keys(data).forEach((recipeKey) => {
+              const newRecipe =
+                new RecipeWithKey(
+                  data[recipeKey].title,
+                  data[recipeKey].products,
+                  data[recipeKey].img,
+                  data[recipeKey].description,
+                  data[recipeKey].yeat,
+                  data[recipeKey].author,
+                  data[recipeKey].created,
+                  recipeKey
+                );
+              this.recipes.push(newRecipe);
+          });
+
+          // console.log(this.allRecipes);
+        },
+          error => this.errorMessage = <any>error);
   }
 
 
