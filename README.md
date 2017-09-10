@@ -1,8 +1,8 @@
 ﻿# Angular2Project
 
-Scheme of Project:
+Structure of this project:
 
-![scheme](https://rawgit.com/Camyul/Angular2Project/master/src/assets/images/structure.png "scheme")
+[<img src="https://rawgit.com/Camyul/Angular2Project/master/src/assets/images/structure.png">](https://rawgit.com/Camyul/Angular2Project/master/documentation/index.html)
 
 ## Team Members
 
