@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   public recipes;
   public allRecipes = [];
   public errorMessage;
+  public gazelles = require('../images/gazelles.jpg');
+
   constructor(private authService: AuthService, private recipesService: RecipesService, private router: Router) {
     this.user = this.authService.user;
     this.user.subscribe(authData => {
