@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 
 import { NotfoundComponent } from './notfound/notfound.component';
 import { SliderComponent } from './slider/slider.component';
+import {WelcomePipe} from './pipes/welcome.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SliderComponent } from './slider/slider.component';
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[WelcomePipe]
 })
 
 

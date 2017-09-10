@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+//import {HeaderComponent} from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 
 /*describe('HomeComponent', () => {
@@ -11,6 +11,7 @@ import { HomeComponent } from './home.component';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[HeaderComponent],
       declarations: [ HomeComponent ]
     })
     .compileComponents();
