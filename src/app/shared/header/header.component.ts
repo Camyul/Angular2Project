@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   public user;
   public currUser;
@@ -26,9 +26,6 @@ export class HeaderComponent implements OnInit {
       }
     );
    }
-
-  ngOnInit() {
-  }
 
   logout() {
     return this.authService.logout();
