@@ -22,7 +22,7 @@ constructor(protected router: Router, protected authService: AuthService) {
     if (this.isLoggedIn) {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/404']);
       return false;
     }
   }
