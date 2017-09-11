@@ -1,6 +1,6 @@
 <div (click)="redirectToDetails(recipe.key)">
     <div class="thumbnail">
         <img class="img-button" src="{{recipe.img}}" alt="recipe image">
-        <p myHighlight><strong>{{recipe.title | summary:30 }}</strong></p>
+        <p appMyHighlight><strong>{{recipe.title | summary:30 }}</strong></p>
     </div>
 </div>
