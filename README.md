@@ -15,13 +15,13 @@ Using Delicious Recipes App you can find recipes of your taste.
   - you can filter recipes by ingredient
 
 ## Private pages
-7. Favourites
+4. Favourites
   - you can see all your favorite recipes
   - you can see delete a recipe from your favorites
-8. My Recipes
+5. My Recipes
   - you can see all your recipes
   - you can see delete a recipe
-9. All Recipes - add new recipe form
+6. All Recipes - add new recipe form
 
 Structure of this project - click on the diagram for full documentation:
 
