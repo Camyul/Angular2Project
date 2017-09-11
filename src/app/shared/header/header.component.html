@@ -5,9 +5,9 @@
         </div>
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="">Home</a></li>
-                <li><a [routerLink]="[ '/recipes']">All Recipes</a></li>
-                <li><a [routerLink]="[ '/recipes/filterby']">Filter by ingredient</a></li>
+                <li><a href="" >Home</a></li>
+                <li><a [routerLink]="[ '/recipes']" id="allrecipes">All Recipes</a></li>
+                <li><a [routerLink]="[ '/recipes/filterby']" id="filterby">Filter by Ingredient</a></li>
                 <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/favourites']">Favourites</a></li>
                 <li *ngIf="isLoggedIn"><a [routerLink]="[ '/recipes/myrecipes']">My Recipes</a></li>
             </ul>
@@ -17,7 +17,7 @@
                     <!--<img id="user-avatar"src="{{ (currUser | async)?.photoURL }}">-->
                 </li>
                 <!-- <li *ngIf="isLoggedIn"><img id="userPic" src="{{ (user | async)?.photoURL }}" class="img-circle img-responsive center-block" alt=""></li> -->
-                <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
+                <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']" id="login">Login</a></li>
                 <li *ngIf="isLoggedIn"><a href="/" (click)="logout()">Logout</a></li>
             </ul>
         </div>
