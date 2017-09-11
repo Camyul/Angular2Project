@@ -3,7 +3,7 @@
 <app-slider></app-slider>
 
 <<div class="container text-center">
-    <h3>Delicious Recipes</h3>
+    <h1 id="title">Delicious Recipes</h1>
     <p>Angular</p>
     <h4>The Tranquil Gazelles</h4>
     <img [src]="gazelles" class="img-circle" alt="Us">
@@ -11,7 +11,7 @@
 </div>
 
 <div class="latest-recipes row eq-height">
-  <h3 class="col-sm-12">Enjoy Our Recipes</h3>
+  <h3 class="col-sm-12" id="enjoy">Enjoy Our Recipes</h3>
     <div *ngFor="let recipe of allRecipes; let i=index" class="col-sm-12 col-md-3 eq-height" (click)="redirectToDetails(recipe?.key)">
       <div *ngIf="i<8" class="recipe-container"> <!-- shows only 8 recipes -->
         <img src="{{recipe.img}}" alt="recipe image">
