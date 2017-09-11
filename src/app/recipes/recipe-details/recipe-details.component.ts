@@ -2,6 +2,7 @@ import { Recipe } from './../../Models/recipe.model';
 import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from './../../providers/auth.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -10,9 +11,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  recipe;
+  public recipe;
+  public isLoggedIn: Boolean = false;
 
-  constructor(private recipesService: RecipesService, private activatedRout: ActivatedRoute, private router: Router) { }
+  constructor(private recipesService: RecipesService,
+    private activatedRout: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService) {
+
+    this.authService.af.authState.subscribe(
+      (auth) => {
+        if (auth == null) {
+          this.isLoggedIn = false;
+        } else {
+          this.isLoggedIn = true;
+        }
+      }
+    );
+
+   }
 
 
   addToFavourites(recipe) {

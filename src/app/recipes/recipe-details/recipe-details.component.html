@@ -9,7 +9,7 @@
         <a class='btn btn-default' (click)='onBack()' style='width:80px'>
             <i class='glyphicon glyphicon-chevron-left'></i> Back
         </a>
-        <button type="button" class="btn" (click)="addToFavourites(recipe)">
+        <button *ngIf="isLoggedIn" type="button" class="btn" (click)="addToFavourites(recipe)">
             <strong>Add to Favourites</strong>
         </button>
     </div>
