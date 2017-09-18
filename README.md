@@ -3,6 +3,8 @@
 ## Delicious Recipes - Fictional food SPA
 Using Delicious Recipes App you can find recipes of your taste.
 
+[Cloud link - Delicious Recipes](https://angularteamproject.firebaseapp.com)
+
 ## Public Pages
 1. Home page:
   - it includes latest recipes
